@@ -44,7 +44,8 @@ class _RegisterPageState extends State<RegisterPage> {
         ));
 
     Widget registerButton = Positioned(
-      left: MediaQuery.of(context).size.width / 4,
+      left: MediaQuery.of(context).size.width / 6,
+      right: MediaQuery.of(context).size.width / 6,
       bottom: 40,
       child: InkWell(
         onTap: () {
@@ -53,14 +54,14 @@ class _RegisterPageState extends State<RegisterPage> {
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
-          height: 80,
+          height: 60,
           child: Center(
               child: new Text("Registrarse",
                   style: const TextStyle(
                       color: const Color(0xfffefefe),
                       fontWeight: FontWeight.w600,
                       fontStyle: FontStyle.normal,
-                      fontSize: 20.0))),
+                      fontSize: 16.0))),
           decoration: BoxDecoration(
               gradient: mainButton,
               boxShadow: [
@@ -85,9 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.only(left: 32.0, right: 12.0),
             decoration: BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 0.8),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10))),
+                borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -122,30 +121,6 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
 
-    Widget socialRegister = Column(
-      children: <Widget>[
-        Text(
-          'Puede iniciar sesión con',
-          style: TextStyle(
-              fontSize: 12.0, fontStyle: FontStyle.italic, color: Colors.white),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.find_replace),
-              onPressed: () {},
-              color: Colors.white,
-            ),
-            IconButton(
-                icon: Icon(Icons.find_replace),
-                onPressed: () {},
-                color: Colors.white),
-          ],
-        )
-      ],
-    );
-
     return Scaffold(
 
       body: Stack(
@@ -163,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 28.0),
+            padding: const EdgeInsets.only(left: 28.0, right: 28.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -178,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 registerForm,
                 Spacer(flex:2),
                 Padding(
-                    padding: EdgeInsets.only(bottom: 20), child: socialRegister)
+                    padding: EdgeInsets.only(bottom: 20))
               ],
             ),
           ),

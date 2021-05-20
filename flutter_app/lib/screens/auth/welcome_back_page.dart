@@ -16,7 +16,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
   @override
   Widget build(BuildContext context) {
     Widget welcomeBack = Text(
-      'Bienvenido,',
+      'Bienvenido',
       style: TextStyle(
           color: Colors.white,
           fontSize: 34.0,
@@ -80,9 +80,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
             padding: const EdgeInsets.only(left: 32.0, right: 12.0),
             decoration: BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 0.8),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10))),
+                borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -105,6 +103,37 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
             ),
           ),
           loginButton,
+        ],
+      ),
+    );
+
+    Widget register = Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            '¿No tiene cuenta? ',
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              color: Color.fromRGBO(255, 255, 255, 0.5),
+              fontSize: 14.0,
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => RegisterPage()));
+            },
+            child: Text(
+              'Registrarse',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 14.0,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -165,7 +194,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                 Spacer(flex: 2),
                 loginForm,
                 Spacer(flex: 2),
-                forgotPassword
+                register
               ],
             ),
           )
